@@ -75,7 +75,46 @@ STATE       -       VARCHAR(2)
 LAT_N       -       NUMBER
 LAT_W       -       NUMBER              */
 
-
-
 SELECT CITY, STATE
 FROM STATION;
+
+
+/*      08 - WEATHER OBSERVATION STATION 2
+Queary the following two values from the STATION table:
+1.  The sum of all values in LAT_N rounded to a scale of  decimal places.
+2.  The sum of all values in LONG_W rounded to a scale of  decimal places.  */
+SELECT 
+    ROUND(SUM(LAT_N), 2), ROUND(SUM(LON_W), 2)
+FROM STATION;
+
+
+/*      09 - WEATHER OBSERVATION STATION 3
+Query a list of CITY names from STATION for cities that have an even ID number. 
+Print the results in any order, but exclude duplicates from the answer.*/
+SELECT DISTRICT CITY
+FROM STATION
+WHERE MOD(ID, 2) = 0;
+
+
+/*      10 - WEATHER OBSERVAGTION STATION 4
+Find the difference between the total number of CITY entries in the table 
+and the number of distinct CITY entries in the table.*/
+SELECT COUNT(CITY) - COUNT(DISTINCT CITY)
+FROM STATION;
+
+
+/*      11 - WEATHER OBSERVATION STATION 5
+Query the two cities in STATION with the shortest and longest CITY names, 
+as well as their respective lengths (i.e.: number of characters in the name). 
+If there is more than one smallest or largest city, 
+choose the one that comes first when ordered alphabetically.        */
+SELECT CITY, LENGTH(CITY)
+FROM STATION
+WHERE LENGTH(CITY) IN (
+  SELECT MAX(LENGTH(CITY))
+  FROM STATION
+  UNION
+  SELECT MIN(LENGTH(CITY))
+  FROM STATION
+)
+ORDER BY LENGTH(CITY) DESC, CITY ASC LIMIT 2;
