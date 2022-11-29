@@ -1,7 +1,6 @@
 /* 
 problem: https://www.hackerrank.com/challenges/revising-the-select-query
 
-
         01 - SELECT ALL
 Query all columns (attributes) for every row in the CITY table.
 
@@ -43,7 +42,7 @@ WHERE
     AND POPULATION > 120000;
 
 
-/*      03- JAPANESE CITIES' ATTRIBUTES
+/*      05- JAPANESE CITIES' ATTRIBUTES
 Query all attributes of every Japanese city in the CITY table. 
 The COUNTRYCODE for Japan is JPN. */
 SELECT *
@@ -51,7 +50,7 @@ FROM CITY
 WHERE COUNTRYCODE = 'JPN';
 
 
-/*      04 - JAPANESE CITIES' NAMES
+/*      06 - JAPANESE CITIES' NAMES
 Query the names of all the Japanese cities in the CITY table. The COUNTRYCODE for Japan is JPN. */
 SELECT NAME
 FROM CITY
@@ -62,7 +61,7 @@ WHERE COUNTRYCODE = 'JPN';
 --------------------------------------------------------------------------------------
 
 
-/*      04 - WEATHER OBSERVATION STATION 1
+/*      07 - WEATHER OBSERVATION STATION 1
 Query a list of CITY and STATE from the STATION table.
 
 The STATION table is described as follows:
@@ -80,5 +79,3 @@ LAT_W       -       NUMBER              */
 
 SELECT CITY, STATE
 FROM STATION;
-
-
